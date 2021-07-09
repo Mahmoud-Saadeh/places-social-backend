@@ -12,7 +12,6 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
-z;
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
