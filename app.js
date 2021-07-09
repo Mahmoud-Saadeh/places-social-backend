@@ -9,14 +9,10 @@ const usersRoutes = require('./routes/users-routes');
 const cors = require('cors');
 const app = express();
 
-mongoose.connect(
-  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.cbyfu.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
-
-app.use(cors());
 app.use(express.json());
 
+app.use(cors());
+z;
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -50,6 +46,10 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
 
+mongoose.connect(
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.cbyfu.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 // .then(() => {
 //   app.listen(5000);
 // })
@@ -62,5 +62,5 @@ app.use((error, req, res, next) => {
 //   // we're connected!
 //   app.listen(5000);
 // });
-app.listen(5000);
+app.listen(process.env.PORT || 5000);
 // mongoose.set("useFindAndModify", false);
