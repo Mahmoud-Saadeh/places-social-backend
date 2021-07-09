@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const placesRoutes = require("./routes/places-routes");
@@ -10,10 +9,10 @@ const usersRoutes = require("./routes/users-routes");
 const cors = require("cors");
 const app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
 
-app.use("/uploads/images", express.static(path.join("uploads", "images")));
 app.use(cors());
+app.use("/uploads/images", express.static(path.join("uploads", "images")));
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
 //   res.setHeader(
@@ -43,7 +42,7 @@ app.use((error, req, res, next) => {
     return next(error);
   }
   res.status(error.code || 500);
-  res.json({ message: error.message || "An unknown error occurres!" });
+  res.json({ message: error.message || "An unknown error occurred!" });
 });
 
 mongoose.connect(
@@ -56,10 +55,11 @@ mongoose.connect(
 // .catch((err) => {
 //   console.log(err);
 // });
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function () {
-  // we're connected!
-  app.listen(5000);
-});
-mongoose.set("useFindAndModify", false);
+// const db = mongoose.connection;
+// db.on("error", console.error.bind(console, "connection error:"));
+// db.once("open", function () {
+//   // we're connected!
+//   app.listen(5000);
+// });
+app.listen(5000);
+// mongoose.set("useFindAndModify", false);
