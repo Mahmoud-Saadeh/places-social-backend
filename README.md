@@ -2,6 +2,8 @@
 
 ## [FrontEnd Repo](https://github.com/Mahmoud-Saadeh/places-social-frontend)
 
+## [BackEnd URL](https://places-social-backend.herokuapp.com/api/users)
+
 ## problem Domain
 
 Make finding a good place to go to easier and record every beautiful memory about any place you went to, by sharing it with an image, title, description and address with the ability to open a map using MapBox
@@ -16,6 +18,7 @@ You can either create an account and explore, interact and share with all the us
 1. Git
 1. GitHub
 1. bcryptjs
+1. cloudinary
 1. cors
 1. express
 1. express-validator
@@ -23,7 +26,6 @@ You can either create an account and explore, interact and share with all the us
 1. mongodb
 1. mongoose
 1. mongoose-unique-validator
-1. multer
 1. uuid
 1. nodemon
 
